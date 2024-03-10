@@ -33,8 +33,8 @@ Arquitetura utilizada: MVC + Arquitetura Limpa
     - [ ] - Excluir
     - [ ] - Buscar Todos
 - [ ] - Rotas de Usuário
-    - [ ] - Login
-    - [ ] - Registro
+    - [x] - Login
+    - [x] - Registro
     - [ ] - Edição
     - [ ] - Confirmação de Email
 - [ ] - Rotas de Pagamento
