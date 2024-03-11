@@ -38,7 +38,7 @@ Arquitetura utilizada: MVC + Arquitetura Limpa
     - [x] - Login
     - [x] - Registro
     - [ ] - Edição
-    - [ ] - Confirmação de Email
+    - [x] - Confirmação de Email
         - -> Confirmação do Email irá utilizar o SMTP da Google, com um link que ligará até a api com um código temporário ligado ao usuário ao queal recebeu esse email. Deverá conter uma query com um código com possibilidade de invalidar. Utilizar UUID para a criação do código, junto aos dados do usuário que serão utilizados.
 - [ ] - Rotas de Pagamento
     - [ ] - Criar uma ordem
