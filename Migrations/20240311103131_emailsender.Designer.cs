@@ -3,6 +3,7 @@ using System;
 using BurgerApi.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace BurgerApi.Migrations
 {
     [DbContext(typeof(BurgerContext))]
-    partial class BurgerContextModelSnapshot : ModelSnapshot
+    [Migration("20240311103131_emailsender")]
+    partial class emailsender
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,71 +98,6 @@ namespace BurgerApi.Migrations
                     b.HasIndex("EstablishmentId");
 
                     b.ToTable("establishment_products", (string)null);
-                });
-
-            modelBuilder.Entity("BurgerApi.Models.HistoryEmailSend", b =>
-                {
-                    b.Property<int>("HistoryEmailId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("HistoryEmailId"));
-
-                    b.Property<DateTime>("ExpireAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("Expired")
-                        .HasColumnType("boolean");
-
-                    b.Property<DateTime?>("ExpiredAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("UuidToken")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("HistoryEmailId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("HistoryEmailSends");
-                });
-
-            modelBuilder.Entity("BurgerApi.Models.HistoryTokens", b =>
-                {
-                    b.Property<int>("HistoryTokensId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("HistoryTokensId"));
-
-                    b.Property<DateTime?>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime?>("ExpireAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<bool>("Expired")
-                        .HasColumnType("boolean");
-
-                    b.Property<DateTime?>("ExpiredAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("JwtToken")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("HistoryTokensId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("HistoryTokens");
                 });
 
             modelBuilder.Entity("BurgerApi.Models.OpeningTime", b =>
@@ -366,28 +304,6 @@ namespace BurgerApi.Migrations
                         .HasConstraintName("establishment_products_establishment_id_fkey");
 
                     b.Navigation("Establishment");
-                });
-
-            modelBuilder.Entity("BurgerApi.Models.HistoryEmailSend", b =>
-                {
-                    b.HasOne("BurgerApi.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("BurgerApi.Models.HistoryTokens", b =>
-                {
-                    b.HasOne("BurgerApi.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("BurgerApi.Models.OpeningTime", b =>

@@ -21,6 +21,7 @@ namespace BurgerApi.Controllers.Auth.Dto
     public class AuthResponseDto : User
     {
         public string Token { get; set; }
+        public new bool IsConfirmed { get; set; }
 
         public AuthResponseDto(User user, string tokenItem)
         {
@@ -32,6 +33,11 @@ namespace BurgerApi.Controllers.Auth.Dto
             PhoneNumber = user.PhoneNumber;
             IntegrationToken = user.IntegrationToken;
             Token = tokenItem;
+            CreatedAt = user.CreatedAt;
+            UpdatedAt = user.UpdatedAt;
+            LastLogin = user.LastLogin;
+            DeletedAt = user.DeletedAt;
+            IsConfirmed = user.IsConfirmed;
         }
     }
 

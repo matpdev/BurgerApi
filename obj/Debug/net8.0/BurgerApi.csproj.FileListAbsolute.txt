@@ -110,3 +110,17 @@
 /Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/Microsoft.Win32.SystemEvents.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/Stripe.net.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/System.Configuration.ConfigurationManager.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/System.Drawing.Common.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/System.Security.Cryptography.ProtectedData.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/System.Security.Permissions.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/System.Windows.Extensions.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/Microsoft.Win32.SystemEvents.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/runtimes/unix/lib/net6.0/System.Drawing.Common.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Drawing.Common.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Security.Cryptography.ProtectedData.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/bin/Debug/net8.0/runtimes/win/lib/net6.0/System.Windows.Extensions.dll
+/Users/matpdev/Projects/csharp_projects/BurgerApi/obj/Debug/net8.0/BurgerApi.sourcelink.json

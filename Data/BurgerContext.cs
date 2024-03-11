@@ -25,6 +25,8 @@ public partial class BurgerContext : DbContext
     public virtual DbSet<Product> Products { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<HistoryEmailSend> HistoryEmailSends { get; set; }
+    public virtual DbSet<HistoryTokens> HistoryTokens { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -169,6 +171,10 @@ public partial class BurgerContext : DbContext
             entity.Property(e => e.PasswordHash).HasMaxLength(100).HasColumnName("password_hash");
             entity.Property(e => e.PhoneNumber).HasMaxLength(15).HasColumnName("phone_number");
         });
+
+        modelBuilder.UseIdentityByDefaultColumns();
+
+        modelBuilder.Entity<User>().Property(b => b.UserId).HasIdentityOptions(startValue: 1);
 
         OnModelCreatingPartial(modelBuilder);
     }

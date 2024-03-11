@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
@@ -26,6 +27,14 @@ public partial class User
     public string? PhoneNumber { get; set; }
 
     public string? IntegrationToken { get; set; }
+
+    public DateTime? LastLogin { get; set; }
+    public DateTime? DeletedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
+    public DateTime? CreatedAt { get; set; }
+
+    [DefaultValue(false)]
+    public bool IsConfirmed { get; set; }
 
     [JsonIgnore]
     public virtual ICollection<Establishment> Establishments { get; set; } =
