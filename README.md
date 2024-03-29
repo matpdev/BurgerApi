@@ -33,11 +33,21 @@ Arquitetura utilizada: MVC + Arquitetura Limpa
     - [ ] - Adicionar
     - [ ] - Editar
     - [ ] - Excluir
-    - [ ] - Buscar Todos
+    - [ ] - Buscar todos os produtos de um estabelecimento paginados
+    - [ ] - Buscar todos os produtos de um estabelecimento por filtro
+- [ ] - Rodas de Estabelecimento
+    - [ ] - Adicionar
+    - [ ] - Editar
+    - [ ] - Excluir
+    - [ ] - Buscar apenas os estabelecimentos
 - [ ] - Rotas de Usuário
     - [x] - Login
     - [x] - Registro
     - [ ] - Edição
+    - [ ] - Dados do Usuário Logado
+    - [ ] - Refazer o token do usuário (muito parecido com o login)
+    - [ ] - Mudança de Senha
+    - [ ] - Confirmação de OTP(verificar o número do usuário, esse será necessário usar uma api paga)
     - [x] - Confirmação de Email
         - -> Confirmação do Email irá utilizar o SMTP da Google, com um link que ligará até a api com um código temporário ligado ao usuário ao queal recebeu esse email. Deverá conter uma query com um código com possibilidade de invalidar. Utilizar UUID para a criação do código, junto aos dados do usuário que serão utilizados.
 - [ ] - Rotas de Pagamento

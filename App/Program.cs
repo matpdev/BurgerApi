@@ -1,6 +1,7 @@
 using System.Text;
 using BurgerApi.Configures;
 using BurgerApi.Identity;
+using BurgerApi.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -63,7 +64,10 @@ internal class Program
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.ConfigObject.AdditionalItems.Add("persistAuthorization", "true");
+            });
         }
 
         app.UseHttpsRedirection();
@@ -71,6 +75,8 @@ internal class Program
         app.UseAuthorization();
 
         app.MapControllers();
+
+        app.UseMiddleware<AuthMiddleware>();
 
         app.Run();
     }

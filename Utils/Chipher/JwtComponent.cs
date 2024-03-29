@@ -46,5 +46,16 @@ namespace BurgerApi.Utils.Chipher
             var jwt = tokenHdlr.WriteToken(token);
             return jwt;
         }
+
+        public void DecryptData(string token)
+        {
+            var tokenHdlr = new JwtSecurityTokenHandler();
+            JwtSecurityToken tokenA = tokenHdlr.ReadJwtToken(token);
+
+            for (int i = 0; i < tokenA.Claims.Count(); i++)
+            {
+                Console.WriteLine(tokenA.Claims.First());
+            }
+        }
     }
 }

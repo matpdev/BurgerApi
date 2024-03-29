@@ -7,6 +7,7 @@ using BurgerApi.Data;
 using BurgerApi.Models;
 using BurgerApi.Services;
 using BurgerApi.Utils.Chipher;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -173,6 +174,20 @@ namespace BurgerApi.Controllers
             }
 
             return NotFound();
+        }
+
+        [Authorize]
+        [HttpPost("updateuser")]
+        public IActionResult UpdateUser(AuthRegisterDto registerDto)
+        {
+            return Ok("Ok");
+        }
+
+        [Authorize]
+        [HttpGet]
+        public IActionResult GetMe()
+        {
+            return Ok();
         }
     }
 }
