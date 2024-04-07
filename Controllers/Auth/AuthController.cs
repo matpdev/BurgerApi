@@ -88,6 +88,12 @@ namespace BurgerApi.Controllers
             return NotFound();
         }
 
+        [HttpPost("refreshtoken")]
+        public async Task<IActionResult> AuthRefreshToken()
+        {
+            return Ok();
+        }
+
         [HttpPost("register")]
         public async Task<IActionResult> AuthRegister([FromBody] AuthRegisterDto registerDto)
         {
@@ -178,16 +184,46 @@ namespace BurgerApi.Controllers
 
         [Authorize]
         [HttpPost("updateuser")]
-        public IActionResult UpdateUser(AuthRegisterDto registerDto)
+        public async Task<IActionResult> UpdateUser(AuthUpdateDto updateDto)
         {
-            return Ok("Ok");
+            HttpContext context = HttpContext;
+            int userId = int.Parse(context.Items["userId"].ToString());
+            var lastUserData = db.Users.FirstOrDefault(e => e.UserId == userId);
+
+            db.ChangeTracker.Clear();
+
+            User user =
+                new()
+                {
+                    UserId = lastUserData.UserId,
+                    Email = updateDto.Email,
+                    PhoneNumber = updateDto.PhoneNumber,
+                    Name = updateDto.Name,
+                    PasswordHash = lastUserData.PasswordHash,
+                    Address = updateDto.Address,
+                    IntegrationToken = lastUserData.IntegrationToken,
+                    CreatedAt = lastUserData.CreatedAt,
+                    UpdatedAt = DateTime.UtcNow,
+                    LastLogin = lastUserData.LastLogin,
+                };
+
+            db.Users.Update(user);
+
+            await db.SaveChangesAsync();
+
+            return Ok(user);
         }
 
         [Authorize]
         [HttpGet]
-        public IActionResult GetMe()
+        public async Task<IActionResult> GetMe()
         {
-            return Ok();
+            HttpContext context = HttpContext;
+            var user = db.Users.FirstOrDefault(e =>
+                e.UserId == int.Parse(context.Items["userId"].ToString())
+            );
+
+            return Ok(user);
         }
     }
 }

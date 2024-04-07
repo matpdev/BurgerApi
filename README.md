@@ -43,8 +43,8 @@ Arquitetura utilizada: MVC + Arquitetura Limpa
 - [ ] - Rotas de Usuário
     - [x] - Login
     - [x] - Registro
-    - [ ] - Edição
-    - [ ] - Dados do Usuário Logado
+    - [x] - Edição
+    - [x] - Dados do Usuário Logado
     - [ ] - Refazer o token do usuário (muito parecido com o login)
     - [ ] - Mudança de Senha
     - [ ] - Confirmação de OTP(verificar o número do usuário, esse será necessário usar uma api paga)

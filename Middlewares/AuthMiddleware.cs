@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using BurgerApi.Utils.Chipher;
 
@@ -20,7 +21,11 @@ namespace BurgerApi.Middlewares
                 .Request.Headers.Authorization.ToString()
                 .Replace("Bearer ", "");
 
-            jwtService.DecryptData(auth);
+            Dictionary<string, string> jwtData = jwtService.DecryptData(auth);
+
+            // Console.WriteLine(jwtData["userId"]);
+
+            httpContext.Items["userId"] = jwtData["userId"];
 
             await _next(httpContext);
         }

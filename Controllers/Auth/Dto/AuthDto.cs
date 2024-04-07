@@ -55,4 +55,17 @@ namespace BurgerApi.Controllers.Auth.Dto
             return $"Email={Email};Password={Password};IntegrationToken={IntegrationToken}";
         }
     }
+
+    public class AuthUpdateDto
+    {
+        public string Name { get; set; } = "";
+        public string Address { get; set; } = "";
+        public string PhoneNumber { get; set; } = "";
+        public string Email { get; set; } = "";
+
+        public override string ToString()
+        {
+            return $"Email={Email};Name={Name};Address={Address};PhoneNumber={PhoneNumber}";
+        }
+    }
 }
