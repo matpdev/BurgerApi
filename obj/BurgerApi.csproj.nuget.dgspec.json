@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/matpdev/Projects/csharp_projects/BurgerApi/BurgerApi.csproj": {}
+    "/home/mistergrow/Projects/csharp_projects/BurgerApi/BurgerApi.csproj": {}
   },
   "projects": {
-    "/Users/matpdev/Projects/csharp_projects/BurgerApi/BurgerApi.csproj": {
+    "/home/mistergrow/Projects/csharp_projects/BurgerApi/BurgerApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/matpdev/Projects/csharp_projects/BurgerApi/BurgerApi.csproj",
+        "projectUniqueName": "/home/mistergrow/Projects/csharp_projects/BurgerApi/BurgerApi.csproj",
         "projectName": "BurgerApi",
-        "projectPath": "/Users/matpdev/Projects/csharp_projects/BurgerApi/BurgerApi.csproj",
-        "packagesPath": "/Users/matpdev/.nuget/packages/",
-        "outputPath": "/Users/matpdev/Projects/csharp_projects/BurgerApi/obj/",
+        "projectPath": "/home/mistergrow/Projects/csharp_projects/BurgerApi/BurgerApi.csproj",
+        "packagesPath": "/home/mistergrow/.nuget/packages/",
+        "outputPath": "/home/mistergrow/Projects/csharp_projects/BurgerApi/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/matpdev/.nuget/NuGet/NuGet.Config"
+          "/home/mistergrow/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -51,7 +51,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.3.4, )"
+              "version": "[3.11.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -95,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.201/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

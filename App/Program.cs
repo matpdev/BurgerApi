@@ -1,7 +1,6 @@
 using System.Text;
 using BurgerApi.Configures;
 using BurgerApi.Identity;
-using BurgerApi.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -70,14 +69,8 @@ internal class Program
             });
         }
 
-        app.UseHttpsRedirection();
-
-        app.UseAuthorization();
-
+        // app.UseAuthorization();
         app.MapControllers();
-
-        app.UseMiddleware<AuthMiddleware>();
-
         app.Run();
     }
 }

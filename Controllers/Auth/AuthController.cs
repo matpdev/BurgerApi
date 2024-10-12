@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BurgerApi.Configures;
 using BurgerApi.Controllers.Auth.Dto;
 using BurgerApi.Data;
 using BurgerApi.Models;
@@ -73,12 +74,12 @@ namespace BurgerApi.Controllers
 
                     db.HistoryTokens.Add(historyTokens);
                     db.HistoryTokens.Where(e =>
-                        e.UserId == user.UserId && e.ExpireAt >= DateTime.UtcNow
-                    )
+                            e.UserId == user.UserId && e.ExpireAt >= DateTime.UtcNow
+                        )
                         .ExecuteUpdate(e => e.SetProperty(data => data.Expired, true));
                     db.HistoryTokens.Where(e =>
-                        e.UserId == user.UserId && e.ExpireAt >= DateTime.UtcNow
-                    )
+                            e.UserId == user.UserId && e.ExpireAt >= DateTime.UtcNow
+                        )
                         .ExecuteUpdate(e => e.SetProperty(data => data.ExpiredAt, DateTime.UtcNow));
 
                     return Ok(new AuthResponseDto(user: user, tokenItem: token));
@@ -88,12 +89,16 @@ namespace BurgerApi.Controllers
             return NotFound();
         }
 
+        [Authorization]
         [HttpPost("refreshtoken")]
         public async Task<IActionResult> AuthRefreshToken()
         {
+            HttpContext context = HttpContext;
+            int userId = int.Parse(context.Items["userId"].ToString());
             return Ok();
         }
 
+        // [Authorization]
         [HttpPost("register")]
         public async Task<IActionResult> AuthRegister([FromBody] AuthRegisterDto registerDto)
         {
@@ -182,7 +187,7 @@ namespace BurgerApi.Controllers
             return NotFound();
         }
 
-        [Authorize]
+        [Authorization]
         [HttpPost("updateuser")]
         public async Task<IActionResult> UpdateUser(AuthUpdateDto updateDto)
         {
@@ -214,7 +219,7 @@ namespace BurgerApi.Controllers
             return Ok(user);
         }
 
-        [Authorize]
+        [Authorization]
         [HttpGet]
         public async Task<IActionResult> GetMe()
         {
